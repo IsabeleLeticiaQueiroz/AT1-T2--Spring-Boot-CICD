@@ -37,7 +37,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/AT1-T2--Spring-Boot-CICD:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/at1-t2-spring-boot-cicd:latest
           
       - name: Deploy no Render
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
