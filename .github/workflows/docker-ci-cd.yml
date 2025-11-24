@@ -1,0 +1,27 @@
+name: Docker CI/CD
+
+on:
+  push:
+    branches: [ docker ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Build JAR
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+      run: mvn clean package -DskipTests
+      
+    - name: Build Docker image
+      run: docker build -t seu-usuario/todo-api:latest .
+      
+    - name: Push to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker push seu-usuario/todo-api:latest
