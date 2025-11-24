@@ -1,4 +1,4 @@
-package com.example.todoapi;
+package com.example.todo_api;
 
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.example.todoapi;
+package com.example.todo_api;
 
 public class Task {
     private Long id;
