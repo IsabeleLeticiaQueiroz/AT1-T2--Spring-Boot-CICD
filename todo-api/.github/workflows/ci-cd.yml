@@ -1,5 +1,5 @@
 name: CI/CD Pipeline
-# teste
+
 on:
   push:
     branches: [ main, master ]
@@ -49,3 +49,6 @@ jobs:
         name: todo-api-jar
         path: target/*.jar
         retention-days: 30
+    
+    - name: confirm 
+      run: echo "CI/CD Pipeline executed successfully!"
